@@ -28,8 +28,10 @@ class DriverConfig:
         # options.add_argument("--headless")
         # 解决卡顿
         options.add_argument("--disable-gpu")
+
         options.add_argument("--no-sandbox")
         options.add_argument("--disable-dev-shm-usage")
+
         # 自动下载对应的浏览器驱动
         driver = webdriver.Chrome(ChromeDriverManager(url="https://registry.npmmirror.com/-/binary/chromedriver",
                                                       latest_release_url="https://registry.npmmirror.com/-/binary/chromedriver/LATEST_RELEASE",
