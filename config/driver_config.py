@@ -36,7 +36,7 @@ class DriverConfig:
         driver_path = ChromeDriverManager(url="https://mirrors.huaweicloud.com/chromedriver/",
                                           latest_release_url="https://mirrors.huaweicloud.com/chromedriver/LATEST_RELEASE",
                                           cache_manager=DriverCacheManager(valid_range=365)).install()
-        # print("驱动地址:", driver_path)
+        # print("chrome驱动地址:", driver_path)
         driver = webdriver.Chrome(driver_path, options=options)
         # 删除所有cookies
         driver.delete_all_cookies()
