@@ -33,13 +33,15 @@ class DriverConfig:
         options.add_argument("--disable-dev-shm-usage")
 
         # 自动下载对应的浏览器驱动
-        driver = webdriver.Chrome(ChromeDriverManager(url="https://registry.npmmirror.com/-/binary/chromedriver",
-                                                      latest_release_url="https://registry.npmmirror.com/-/binary/chromedriver/LATEST_RELEASE",
-                                                      cache_manager=DriverCacheManager(valid_range=365)).install(),
-                                  options=options)
+        driver_path = ChromeDriverManager(url="https://mirrors.huaweicloud.com/chromedriver/",
+                                          latest_release_url="https://mirrors.huaweicloud.com/chromedriver/LATEST_RELEASE",
+                                          cache_manager=DriverCacheManager(valid_range=365)).install()
+        # print("驱动地址:", driver_path)
+        driver = webdriver.Chrome(driver_path, options=options)
         # 删除所有cookies
         driver.delete_all_cookies()
 
+        # 测试driver
         # driver.get("https://www.baidu.com/")
         # sleep(3)
         # driver.quit()
