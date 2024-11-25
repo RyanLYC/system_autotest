@@ -1,10 +1,9 @@
 user:
-  jay:
-    username: 周杰伦
-    password: 123456
-  william:
-    username: william
-    password: 123456
-  failure:
-    username: william
-    password: william
+  admin:
+    username: zgadmin
+    password: Zg8760
+  zhangsan:
+    username: 13012345678
+    password: Zs123456
+
+url: https://yunwei.zgyun.link/#

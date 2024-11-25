@@ -14,6 +14,12 @@ class GetConf:
             self.env = yaml.load(env_file, Loader=yaml.FullLoader)
             # print(self.env)
 
+    def get_username_password(self, user):
+        return self.env["user"][user]["username"], self.env["user"][user]["password"]
+
+    def get_url(self):
+        return self.env["url"]
+
 
 if __name__ == '__main__':
     print(GetConf())
