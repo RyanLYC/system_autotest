@@ -17,3 +17,16 @@ class LoginBase:
         """
         return "//span[text()='" + button_name + "']/parent::button"
 
+    def captcha(self):
+        """
+        验证码
+        :return:
+        """
+        return "//img[@alt='验证码']"
+
+    def input_captcha(self):
+        """
+        输入验证码的输入框
+        :return:
+        """
+        return "//input[@placeholder='请输入验证码']"

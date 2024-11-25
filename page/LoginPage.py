@@ -2,6 +2,7 @@ from base.LoginBase import LoginBase
 from base.ObjectMap import ObjectMap
 from selenium.webdriver.common.by import By
 
+from common.ocr_identify import OcrIdentify
 from common.yaml_config import GetConf
 
 
@@ -40,4 +41,11 @@ class LoginPage(LoginBase, ObjectMap):
         username, password = GetConf().get_username_password(user)
         self.login_input_value(driver, "请输入账号", username)
         self.login_input_value(driver, "请输入密码", password)
+        # 图片验证码处理
+        captcha_xpath = self.captcha()
+        ele_img_path = self.element_screenshot(driver, By.XPATH, captcha_xpath)
+        identify = OcrIdentify().identify(ele_img_path)
+        # print("验证码:", identify)
+        input_captcha_xpath = self.input_captcha()
+        self.element_fill_value(driver, By.XPATH, input_captcha_xpath, identify)
         self.click_login(driver, "登录")
