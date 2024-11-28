@@ -1,6 +1,7 @@
 from time import sleep
 
 from config.driver_config import DriverConfig
+from selenium.webdriver.common.by import By
 
 driver = DriverConfig().driver_config()
 driver.get("https://yunwei.zgyun.link/#/login")
